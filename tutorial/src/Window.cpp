@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2014-2016 Alex Spataru <alex_spataru@outlook.com>
  *
  * This work is free. You can redistribute it and/or modify it under the
@@ -16,8 +16,8 @@
 // Define the URL of the Update Definitions file
 //==============================================================================
 
-static const QString DEFS_URL = "https://raw.githubusercontent.com/"
-                                "alex-spataru/QSimpleUpdater/master/tutorial/"
+static const QString DEFS_URL = "https://github.com/"
+                                "longlongago-zsc/QSimpleUpdater/master/tutorial/"
                                 "definitions/updates.json";
 
 //==============================================================================
