@@ -15,10 +15,10 @@
 //==============================================================================
 // Define the URL of the Update Definitions file
 //==============================================================================
-
-static const QString DEFS_URL = "https://github.com/"
-                                "longlongago-zsc/QSimpleUpdater/master/tutorial/"
-                                "definitions/updates.json";
+static const QString DEFS_URL = "https://hg-techedu.com/edu/general/download";
+// static const QString DEFS_URL = "https://github.com/"
+//                                 "longlongago-zsc/QSimpleUpdater/master/tutorial/"
+//                                 "definitions/updates.json";
 
 //==============================================================================
 // Window::Window

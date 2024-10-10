@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2014-2021 Alex Spataru <https://github.com/alex-spataru>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -133,7 +133,7 @@ void Downloader::startDownload(const QUrl &url)
 
    /* Ensure that downloads directory exists */
    if (!m_downloadDir.exists())
-      m_downloadDir.mkpath(".");
+       m_downloadDir.mkpath(".");
 
    /* Remove old downloads */
    QFile::remove(m_downloadDir.filePath(m_fileName));
@@ -365,6 +365,11 @@ void Downloader::metaDataChanged()
       if (match.hasMatch())
       {
          filename = match.captured(1);
+      }
+      int index = filename.indexOf(";");
+      if (index != -1)
+      {
+          filename = filename.left(index);
       }
       setFileName(filename);
    }

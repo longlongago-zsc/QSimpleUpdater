@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2014-2021 Alex Spataru <https://github.com/alex-spataru>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,6 +22,12 @@
 
 #ifndef DOWNLOAD_DIALOG_H
 #define DOWNLOAD_DIALOG_H
+
+#ifndef __DEBUG__
+#define __DEBUG__ qDebug()<<QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:zzz")<<__FILE__<<__FUNCTION__<<__LINE__
+#include <QDebug>
+#include <QDateTime>
+#endif
 
 #include <QDir>
 #include <QDialog>

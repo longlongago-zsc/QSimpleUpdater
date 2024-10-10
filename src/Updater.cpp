@@ -30,6 +30,19 @@
 #include "Updater.h"
 #include "Downloader.h"
 
+static const QString DEFS_URL = R"(
+{
+  "updates": {
+    "windows": {
+      "open-url": "",
+      "latest-version": "1.0",
+      "download-url": "https://central.hg-techedu.com/manageServer/file/downLoad?fileKey=66ce7c5682d1d41f294d0098",
+      "changelog": "This is an example changelog for Windows. Go on...",
+      "mandatory": true
+    }
+  }
+}
+)";
 Updater::Updater()
 {
    m_url = "";
@@ -388,6 +401,7 @@ void Updater::onReply(QNetworkReply *reply)
    /* There was a network error */
    if (reply->error() != QNetworkReply::NoError)
    {
+       __DEBUG__ << "network error:" << reply->errorString();
       setUpdateAvailable(false);
       emit checkingFinished(url());
       return;
@@ -403,6 +417,10 @@ void Updater::onReply(QNetworkReply *reply)
 
    /* Try to create a JSON document from downloaded data */
    QJsonDocument document = QJsonDocument::fromJson(reply->readAll());
+   if (document.isNull())
+   {
+       document = QJsonDocument::fromJson(DEFS_URL.toUtf8());
+   }
 
    /* JSON is invalid */
    if (document.isNull())
@@ -469,7 +487,8 @@ void Updater::setUpdateAvailable(const bool available)
          else if (downloaderEnabled())
          {
             m_downloader->setUrlId(url());
-            m_downloader->setFileName(downloadUrl().split("/").last());
+            //m_downloader->setFileName(downloadUrl().split("/").last());
+            m_downloader->setFileName(QStringLiteral("单机操作软件.exe"));
             m_downloader->setMandatoryUpdate(m_mandatoryUpdate);
             auto url = QUrl(downloadUrl());
             url.setUserName(m_downloadUserName);

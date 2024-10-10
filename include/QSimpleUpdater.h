@@ -23,6 +23,12 @@
 #ifndef _QSIMPLEUPDATER_MAIN_H
 #define _QSIMPLEUPDATER_MAIN_H
 
+#ifndef __DEBUG__
+#define __DEBUG__ qDebug()<<QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:zzz")<<__FILE__<<__FUNCTION__<<__LINE__
+#include <QDebug>
+#include <QDateTime>
+#endif
+
 #include <QUrl>
 #include <QList>
 #include <QObject>
