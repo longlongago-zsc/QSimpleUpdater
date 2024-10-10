@@ -30,13 +30,17 @@ INCLUDEPATH += $$PWD/include
 
 SOURCES += \
     $$PWD/src/Updater.cpp \
+    $$PWD/src/AuthenticateDialog.cpp \
     $$PWD/src/Downloader.cpp \
     $$PWD/src/QSimpleUpdater.cpp
 
 HEADERS += \
     $$PWD/include/QSimpleUpdater.h \
     $$PWD/src/Updater.h \
+    $$PWD/src/AuthenticateDialog.h \
     $$PWD/src/Downloader.h
 
-FORMS += $$PWD/src/Downloader.ui
+FORMS += $$PWD/src/AuthenticateDialog.ui \
+    $$PWD/src/Downloader.ui
+
 RESOURCES += $$PWD/etc/resources/qsimpleupdater.qrc
